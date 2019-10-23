@@ -7,10 +7,11 @@ import { VoterService } from './voter.service';
     selector: 'session-list',
     templateUrl: './session-list.component.html'
 })
-export class SesssionListComponent implements OnChanges {
+export class SessionListComponent implements OnChanges {
     @Input() sessions:ISession[]
     @Input() filterBy: string;
     @Input() sortBy: string;
+    @Input() eventId: number;
     visibleSessions: ISession[] = [];
 
     constructor(private auth: AuthService,
@@ -27,10 +28,10 @@ export class SesssionListComponent implements OnChanges {
 
     toggleVote(session: ISession) {
         if (this.userHasVoted(session)) {
-            this.voterService.deleteVoter(session,
+            this.voterService.deleteVoter(this.eventId, session,
                 this.auth.currentUser.userName);
         } else {
-            this.voterService.addVoter(session,
+            this.voterService.addVoter(this.eventId, session,
                 this.auth.currentUser.userName
                 );
            

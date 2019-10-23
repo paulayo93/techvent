@@ -22,14 +22,11 @@ export class EventDetailsComponent {
         ) {}
 
     ngOnInit() {
-        this.route.params.forEach((params: Params) => {
-            this.event = this.eventService.getEvent(+params['id'])
-        })
-
-
-        this.event = this.eventService.getEvent(
-            +this.route.snapshot.params['id'])
-            this.addMode = false;
+       this.route.data.forEach((data) => {
+           this.event = data['event']
+           this.addMode = false;
+       })
+            
 
     }
     addSession() {
@@ -41,7 +38,8 @@ export class EventDetailsComponent {
             s.id));
         session.id = nextId + 1
         this.event.sessions.push(session)
-        this.eventService.updateEvent(this.event)
+        this.eventService.saveEvent(this.event)
+        .subscribe();
         this.addMode = false
     }
     cancelAddSession() {

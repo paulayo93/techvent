@@ -9,11 +9,9 @@ import { Component, EventEmitter, Input, Output } from
         <div class="votingWidgetContainer pointable" (click)="onClick()"> 
         <div class="well votingWidget">
         <div class="votingButton">
-            <i class="glypicon
+            <i class="glyphicon
             glyphicon-heart"
             [style.color]="iconColor"></i>
-           
-
         </div>
         <div class="badge badge-inverse votingCount">
             <div>{{count}}
