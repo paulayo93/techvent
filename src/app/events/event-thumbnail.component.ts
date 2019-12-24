@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IEvent } from './shared';
 
 @Component({
@@ -19,7 +19,7 @@ import { IEvent } from './shared';
     <span>&nbsp;</span>
     <span class="pad-left">Location: {{event?.location?.city}}</span>
     </div>
-    
+
     </div>
     `,
     styles: [`
@@ -27,12 +27,13 @@ import { IEvent } from './shared';
             .pad-left {margin-left: 10px;}
         `]
 }) export class EventThumbnailComponent {
-    @Input() event: IEvent
-    
-    getStartTimeStyle():any {
-        if (this.event && this.event.time == '8:00 am')
-        return {color: '#003300', 'font-weight': 'bold'}
-    return {}
+    @Input() event: IEvent;
+
+    getStartTimeStyle(): any {
+        if (this.event && this.event.time == '8:00 am') {
+        return {color: '#003300', 'font-weight': 'bold'};
+        }
+        return {};
     }
 
 }

@@ -1,10 +1,10 @@
 {
-  "name": "ng-fundamentals",
+  "name": "techvent",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -25,7 +25,8 @@
     "rxjs": "~6.4.0",
     "toastr": "^2.1.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "typescript": "~3.5.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.5",
@@ -45,7 +46,6 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "tslint": "~5.15.0"
   }
 }

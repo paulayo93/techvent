@@ -6,7 +6,7 @@ import { AuthService } from './user/auth.service';
   template: `
         <nav-bar></nav-bar>
         <router-outlet></router-outlet>
-  
+
         `
 })
 export class EventsAppComponent {
@@ -14,7 +14,7 @@ export class EventsAppComponent {
 
 
  ngOnInit() {
-   this.auth.checkAuthenticationStatus()
-   
+   this.auth.checkAuthenticationStatus();
+
  }
 }

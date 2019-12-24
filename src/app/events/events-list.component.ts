@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { EventService } from './shared/event.service';
-import  { ActivatedRoute } from '@angular/router'
+import  { ActivatedRoute } from '@angular/router';
 
 import { IEvent } from './shared';
 
@@ -12,25 +12,25 @@ import { IEvent } from './shared';
     <hr/>
         <div class="row">
         <div *ngFor="let event of events" class="col-md-5">
-        <event-thumbnail 
+        <event-thumbnail
         [event]="event"></event-thumbnail>
         </div>
     </div>
-        </div>  
+        </div>
     `
 })
 
 export class EventListComponent implements OnInit {
-  events: IEvent[]
+  events: IEvent[];
   constructor(private eventService: EventService,
-    private route: ActivatedRoute ) {
-  
+              private route: ActivatedRoute ) {
+
    }
 
    ngOnInit() {
-     this.events = this.route.snapshot.data['events']
+    this.events = this.route.snapshot.data['events']
    }
 
-   
+
 
 }
