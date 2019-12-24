@@ -4,12 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod",
+    "build": "ng build --aot --prod",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "node node_modules/ngf-server/server.js",
-    "postinstall": "ng build --output-path dist"
+    "heroku-postbuild": "ng build --output-path dist"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
   },
   "private": true,
   "dependencies": {
