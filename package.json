@@ -5,7 +5,7 @@
     "start": "node node_modules/ngf-server/server.js --proxy-config proxy.conf.json",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",
-    "postbuild": "ng build --aot  --prod --output-path dist"
+    "postbuild": "ng build --aot  --prod --output-path dist/ng-fundamentals"
   },
   "engines": {
     "node": "10.16.3",
