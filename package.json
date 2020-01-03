@@ -2,10 +2,13 @@
   "name": "techvent",
   "version": "0.0.0",
   "scripts": {
-    "start": "node node_modules/ngf-server/server.js --proxy-config proxy.conf.json",
+    "ng": "ng",
+    "serve": "ng serve -o",
+    "build": "ng build --output-path dist/",
+    "start": "node server/server.js --proxy-config proxy.conf.json",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",
-    "postbuild": "ng build --aot  --prod --output-path dist/ng-fundamentals"
+    "postbuild": "ng build --aot  --prod --output-path dist/"
   },
   "engines": {
     "node": "10.16.3",
@@ -30,7 +33,14 @@
     "toastr": "^2.1.4",
     "tslib": "^1.10.0",
     "typescript": "~3.5.3",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "body-parser": "1.15.0",
+    "cookie-parser": "1.4.1",
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "morgan": "1.7.0"
   },
   "devDependencies": {
     "@angular/language-service": "~8.2.7",
