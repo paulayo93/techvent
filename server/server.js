@@ -1,15 +1,21 @@
-var express = require('express');
+var express = require("express");
 
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var  port = process.env.PORT || 8808
+var env = (process.env.NODE_ENV = process.env.NODE_ENV || "development");
+
+
 
 var app = express();
 
-require('./expressConfig')(app);
+require("./expressConfig")(app);
 
-require('./passport')();
+require("./passport")();
 
-require('./routes')(app);
+require("./routes")(app);
 
-app.listen(port);
-console.log('Listening on port ' + port + '...');
+
+var server = app.listen(process.env.PORT || 8080, function() {
+  var port = server.address().port;
+  console.log("App now running on port", port);
+});
+
+server;

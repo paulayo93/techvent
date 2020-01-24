@@ -10,7 +10,7 @@ import { catchError, delay, timeout } from 'rxjs/operators';
 export class EventService {
   constructor( private http: HttpClient) {}
     getEvents(): Observable<IEvent[]> {
-      return this.http.get<IEvent[]>('api/events')
+      return this.http.get<IEvent[]>('/api/events/')
       .pipe(delay(100),
       catchError(this.handleError<IEvent[]>('getEvents',
       [])));
@@ -19,7 +19,7 @@ export class EventService {
 
 
     getEvent(id: number): Observable<IEvent> {
-      return this.http.get<IEvent>('api/events/' +
+      return this.http.get<IEvent>('/api/events/' +
       id)
       .pipe(catchError
         (this.handleError<IEvent>('getEvent')));
