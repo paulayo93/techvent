@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "buildDev": "ng build",
-    "buildProd": "ng build --prod",
+    "build": "ng build --prod",
     "start": "node server/server.js",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",
-    "postbuild": "ng build --output-path dist"
+    "postbuild": "ng build --prod --output-path dist"
   },
   "engines": {
     "node": "10.16.3",
