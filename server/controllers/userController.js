@@ -1,12 +1,14 @@
 var users = require('../database/users'),
   getNextId = require('./getNextId');
 
+const parseUsers = JSON.parse(JSON.stringify(users));
+const jsonUsers =  JSON.stringify(users);
 var nextId = getNextId(users);
 
 exports.updateUser = function(req, res) {
   var updatedUser = req.body;
 
-  var foundUser = users.find(user => user.id === parseInt(req.params.id));
+  var foundUser = jsonUsers.find(user => user.id === parseInt(req.params.id));
   if(foundUser) {
     foundUser.firstName = updatedUser.firstName;
     foundUser.lastName = updatedUser.lastName;
@@ -21,9 +23,9 @@ exports.createUser = function(req, res) {
   newUser.id = nextId;
   nextId++;
   users.push(newUser);
-  
+
   res.send(newUser);
-  res.end(); 
+  res.end();
 }
 
 exports.getUsers = function(req, res) {

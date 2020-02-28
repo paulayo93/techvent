@@ -14,7 +14,7 @@ var rootPath = path.normalize(__dirname + "../");
 module.exports = function(app) {
   // app.use(logger('tiny'));
   app.use(cookieParser());
-  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
   app.use(function(req, res, next) {

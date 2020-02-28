@@ -81,7 +81,8 @@ const jQuery = window['$'];
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
-    }
+    },
+    { provide: "Window", useFactory: () => window }
   ],
   bootstrap: [EventsAppComponent]
 })

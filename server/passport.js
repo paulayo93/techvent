@@ -1,8 +1,10 @@
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   users = require('./database/users');
-  
-  
+
+const parseUsers = JSON.parse(JSON.stringify(users));
+const jsonUsers =  JSON.stringify(users);
+
 module.exports = function() {
   passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -10,11 +12,11 @@ module.exports = function() {
         return user.userName.toLowerCase() === username;
       })
       if(found) {
-        return done(null, found);  
+        return done(null, found);
       } else {
         return done(null, false);
       }
-      
+
     }
   ));
 
@@ -31,7 +33,7 @@ module.exports = function() {
       return user.id === id;
     })
     if(found) {
-      return done(null, found);  
+      return done(null, found);
     } else {
       return done(null, false);
     }

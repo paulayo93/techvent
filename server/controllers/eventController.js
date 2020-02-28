@@ -2,10 +2,12 @@ var events = require('../database/events'),
   getNextId = require('./getNextId'),
   url = require('url');
 
-var nextId = getNextId(events);
+const parseEvents = JSON.parse(JSON.stringify(events));
+const jsonEvents =  JSON.stringify(events);
+let nextId = getNextId(parseEvents);
 
 exports.getEvents = function(req, res) {
-  res.send(events);
+  res.send(jsonEvents);
 }
 
 exports.getEvent = function(req, res) {
@@ -34,7 +36,7 @@ exports.deleteVoter = function(req, res) {
 
   var session = events.find(event => event.id === eventId)
     .sessions.find(session => session.id === sessionId)
-    
+
   session.voters = session.voters.filter(voter => voter !== voterId);
   res.send(session);
 }
@@ -46,14 +48,14 @@ exports.addVoter = function(req, res) {
 
   var event = events.find(event => event.id === eventId)
   var session = event.sessions.find(session => session.id === sessionId)
-    
+
   session.voters.push(voterId);
   res.send(session);
 }
 
 exports.saveEvent = function(req, res) {
   var event = req.body;
-  
+
   if (event.id) {
     var index = events.findIndex(e => e.id === event.id)
     events[index] = event
@@ -64,7 +66,7 @@ exports.saveEvent = function(req, res) {
     events.push(event);
   }
   res.send(event);
-  res.end(); 
+  res.end();
 }
 
 
